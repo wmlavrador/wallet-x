@@ -1,0 +1,3 @@
+.env
+infra/mysql_data
+.idea
