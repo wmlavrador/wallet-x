@@ -7,7 +7,7 @@ use App\Entities\Wallets;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Model>
+ * @extends Factory<Wallets>
  */
 class WalletsFactory extends Factory
 {
