@@ -5,6 +5,7 @@ namespace App\Entities;
 use Database\Factories\TransactionsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Transactions extends Model
 {
@@ -23,5 +24,15 @@ class Transactions extends Model
     public static function factory(): TransactionsFactory
     {
         return TransactionsFactory::new();
+    }
+
+    public function senderWallet(): BelongsTo
+    {
+        return $this->belongsTo(Wallets::class, 'wallets_id_sender', 'id');
+    }
+
+    public function receiverWallet(): BelongsTo
+    {
+        return $this->belongsTo(Wallets::class, 'wallets_id_receiver', 'id');
     }
 }

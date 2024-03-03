@@ -5,6 +5,8 @@ namespace App\Entities;
 use Database\Factories\WalletsFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Wallets extends Model
 {
@@ -25,5 +27,20 @@ class Wallets extends Model
     public static function factory(): WalletsFactory
     {
         return WalletsFactory::new();
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function senderTransactions(): HasMany
+    {
+        return $this->hasMany(Transactions::class, 'wallets_id_sender', 'id');
+    }
+
+    public function receiverTransactions(): HasMany
+    {
+        return $this->hasMany(Transactions::class, 'wallets_id_receiver', 'id');
     }
 }
