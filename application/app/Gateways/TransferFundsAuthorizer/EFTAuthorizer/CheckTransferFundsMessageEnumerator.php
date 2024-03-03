@@ -2,8 +2,8 @@
 
 namespace app\Gateways\TransferFundsAuthorizer\EFTAuthorizer;
 
-enum CheckTransferFundsMessageEnumerator
+enum CheckTransferFundsMessageEnumerator: string
 {
-    public const AUTHORIZED = 'Autorizado';
-    public const NOT_AUTHORIZED = 'Não Authorizado';
+    case Authorized = 'Autorizado';
+    case NotAuthorized = 'Não Autorizado';
 }

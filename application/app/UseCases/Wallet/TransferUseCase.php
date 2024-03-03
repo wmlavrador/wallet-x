@@ -5,20 +5,15 @@ namespace App\UseCases\Wallet;
 use App\Contracts\TransferFundsAuthorizerContract;
 use App\Entities\User;
 use App\Exceptions\Transfer\TransferRulesException;
-use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 
 class TransferUseCase
 {
-    private TransferFundsAuthorizerContract $transferFundsAuthorizer;
-    private UserRepository $userRepository;
 
     public function __construct(
-        TransferFundsAuthorizerContract $transferFundsAuthorizer,
-        UserRepositoryInterface $userRepository
+        private readonly TransferFundsAuthorizerContract $transferFundsAuthorizer,
+        private readonly UserRepositoryInterface $userRepository
     ) {
-        $this->transferFundsAuthorizer = $transferFundsAuthorizer;
-        $this->userRepository = $userRepository;
     }
 
     /**

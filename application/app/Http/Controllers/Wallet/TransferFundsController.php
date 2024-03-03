@@ -10,11 +10,9 @@ use Illuminate\Http\JsonResponse;
 
 class TransferFundsController extends Controller
 {
-    protected TransferUseCase $transferUseCase;
-
-    public function __construct(TransferUseCase $transferUseCase)
-    {
-        $this->transferUseCase = $transferUseCase;
+    public function __construct(
+        protected readonly TransferUseCase $transferUseCase
+    ) {
     }
 
     /**
