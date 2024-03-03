@@ -26,11 +26,17 @@ class Transactions extends Model
         return TransactionsFactory::new();
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function senderWallet(): BelongsTo
     {
         return $this->belongsTo(Wallets::class, 'wallets_id_sender', 'id');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function receiverWallet(): BelongsTo
     {
         return $this->belongsTo(Wallets::class, 'wallets_id_receiver', 'id');

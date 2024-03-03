@@ -51,6 +51,9 @@ class User extends Authenticatable
         return UserFactory::new();
     }
 
+    /**
+     * @return HasMany
+     */
     public function wallets(): HasMany
     {
         return $this->hasMany(Wallets::class);

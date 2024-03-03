@@ -34,11 +34,17 @@ class Wallets extends Model
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return HasMany
+     */
     public function senderTransactions(): HasMany
     {
         return $this->hasMany(Transactions::class, 'wallets_id_sender', 'id');
     }
 
+    /**
+     * @return HasMany
+     */
     public function receiverTransactions(): HasMany
     {
         return $this->hasMany(Transactions::class, 'wallets_id_receiver', 'id');
