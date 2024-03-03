@@ -10,6 +10,9 @@ class Wallets extends Model
 {
     use HasFactory;
 
+    public const WalletTypeFiat = 'fiat';
+    public const WalletTypeCrypto = 'crypto';
+
     protected $fillable = [
         'user_id',
         'balance',
