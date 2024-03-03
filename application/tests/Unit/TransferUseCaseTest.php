@@ -13,21 +13,21 @@ use PHPUnit\Framework\TestCase;
 class TransferUseCaseTest extends TestCase
 {
     protected TransferUseCase $transferUseCase;
-    protected UserRepository $userRepository;
-    protected TransferFundsAuthorizerContract $transferFundsAuthorizer;
+    protected UserRepository $mockUserRepository;
+    protected TransferFundsAuthorizerContract $mockTransferFundsAuthorizer;
     protected User $user;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->userRepository = $this->createMock(UserRepository::class);
-        $this->transferFundsAuthorizer = $this->createMock(EFTAuthorizer::class);
+        $this->mockUserRepository = $this->createMock(UserRepository::class);
+        $this->mockTransferFundsAuthorizer = $this->createMock(EFTAuthorizer::class);
         $this->user = $this->createMock(User::class);
 
         $this->transferUseCase = new TransferUseCase(
-            $this->transferFundsAuthorizer,
-            $this->userRepository
+            $this->mockTransferFundsAuthorizer,
+            $this->mockUserRepository
         );
     }
 
@@ -37,9 +37,9 @@ class TransferUseCaseTest extends TestCase
         $idReceiver = 2;
         $value = -100;
 
-        $this->userRepository->method('getUserById')->willReturn($this->user);
+        $this->mockUserRepository->method('getUserById')->willReturn($this->user);
 
-        $this->transferFundsAuthorizer->expects($this->never())
+        $this->mockTransferFundsAuthorizer->expects($this->never())
             ->method('checkTransferFunds');
 
         $this->expectException(TransferRulesException::class);
