@@ -29,7 +29,7 @@ class TransferFundsController extends Controller
         $this->transferUseCase->transfer($sender, $receiver, $value);
 
         return response()->json([
-            'status' => 1,
+            'success' => true,
             'message' => 'Transaction received with successfully to proccesment'
         ]);
     }
