@@ -37,7 +37,8 @@ class TransferUseCaseTest extends TestCase
         $idReceiver = 2;
         $value = -100;
 
-        $this->mockUserRepository->method('getUserById')->willReturn($this->user);
+        $this->mockUserRepository->method('getUserById')
+            ->willReturn($this->user);
 
         $this->mockTransferFundsAuthorizer->expects($this->never())
             ->method('checkTransferFunds');
