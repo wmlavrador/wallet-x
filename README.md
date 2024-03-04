@@ -48,6 +48,10 @@ Rename the example file .env.example to .env
 ```
 cp .env.example .env
 ```
+Rename laravel .env.example file inside on path /application to .env
+```
+cp application/.env.example application/.env
+```
 
 ### 4. Initialize Docker Containers
 Run the docker-compose up command to start the containers:
@@ -63,10 +67,6 @@ docker-compose exec app_wallet_x
 Inside the container install the dependencies using Composer:
 ```
 composer install
-```
-Rename laravel .env.example file to .env
-```
-cp .env.example .env
 ```
 Still inside the container, generate the Laravel encryption key:
 ```
