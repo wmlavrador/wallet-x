@@ -3,7 +3,6 @@
 namespace App\Contracts;
 
 use App\Entities\DataTransferObjects\WalletData;
-use App\Entities\User;
 
 interface TransferFundsAuthorizerContract
 {
