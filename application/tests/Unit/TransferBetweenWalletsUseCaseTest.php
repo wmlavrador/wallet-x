@@ -37,39 +37,34 @@ class TransferBetweenWalletsUseCaseTest extends TestCase
         );
     }
 
-    public function testCreateTransactionWithInsufficientFunds(): void
+    protected function configureWallets($senderBalance, $receiverBalance): void
     {
-        $sender = new WalletData(1, 0, Wallets::WALLET_FIAT);
-        $receiver = new WalletData(2, 100, Wallets::WALLET_FIAT);
-        $transactionData = new TransactionsData($sender->userId, $receiver->userId, 150);
+        $sender = new WalletData(1, $senderBalance, Wallets::WALLET_FIAT);
+        $receiver = new WalletData(2, $receiverBalance, Wallets::WALLET_FIAT);
 
         $this->walletsRepository->method('specificWalletById')->willReturnMap([
             [1, $sender],
             [2, $receiver],
         ]);
+    }
 
-        $this->transferFundsAuthorizer->method('checkTransferFunds')->with($sender, $receiver, 150)->willReturn(true);
+    public function testCreateTransactionWithInsufficientFunds(): void
+    {
+        $this->configureWallets(0, 100);
+
+        $this->transferFundsAuthorizer->method('checkTransferFunds')->willReturn(true);
 
         $this->expectException(TransferRulesException::class);
-
-        $this->useCase->createTransaction($transactionData);
+        $this->useCase->createTransaction(new TransactionsData(1, 2, 150));
     }
 
     public function testCreateTransactionWithNotAuthorizedETF(): void
     {
-        $sender = new WalletData(1, 0, Wallets::WALLET_FIAT);
-        $receiver = new WalletData(2, 100, Wallets::WALLET_FIAT);
-        $transactionData = new TransactionsData($sender->userId, $receiver->userId, 150);
+        $this->configureWallets(0, 100);
 
-        $this->walletsRepository->method('specificWalletById')->willReturnMap([
-            [1, $sender],
-            [2, $receiver],
-        ]);
-
-        $this->transferFundsAuthorizer->method('checkTransferFunds')->with($sender, $receiver, 150)->willReturn(false);
+        $this->transferFundsAuthorizer->method('checkTransferFunds')->willReturn(false);
 
         $this->expectException(TransferRulesException::class);
-
-        $this->useCase->createTransaction($transactionData);
+        $this->useCase->createTransaction(new TransactionsData(1, 2, 150));
     }
 }
