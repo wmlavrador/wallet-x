@@ -1,10 +1,10 @@
 # Wallet-X
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/wmlavrador/wallet-x?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/wmlavrador/wallet-x?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/wmlavrador/wallet-x?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/wmlavrador/wallet-x?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/wmlavrador/wallet-x?style=for-the-badge)
 
 > The Wallet-x system is a small project aimed at training in #DDD, #TDD, #Clean Code, #Clean Architecture, #Docker, 'Queue' with #Redis, and more.
 
