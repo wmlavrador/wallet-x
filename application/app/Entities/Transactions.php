@@ -18,6 +18,21 @@ class Transactions extends Model
         'value',
     ];
 
+    public const STATUS_PROCCESSING = 1;
+    public const STATUS_APPROVED = 2;
+    public const STATUS_REVERTED = 3;
+
+    public const STATUS_LABEL = [
+        self::STATUS_PROCCESSING => 'Proccessing',
+        self::STATUS_APPROVED => 'Approved',
+        self::STATUS_REVERTED => 'Reverted'
+    ];
+
+    public static function getStatusLabel(int $status): string
+    {
+        return self::STATUS_LABEL[$status] ?? 'Status is not defined';
+    }
+
     /**
      * @return TransactionsFactory
      */

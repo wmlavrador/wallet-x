@@ -21,15 +21,9 @@ interface TransactionsRepositoryInterface
     public function getAllWalletSenderTransactions(WalletData $walletData): Collection;
 
     /**
-     * @param WalletData $walletSender
-     * @param WalletData $walletReceiver
-     * @param float $value
+     * @param TransactionsData $transactionData
      * @return TransactionsData|null
      */
-    public function createTransactionToWallets(
-        WalletData $walletSender,
-        WalletData $walletReceiver,
-        float $value
-    ): TransactionsData|null;
+    public function createTransactionToWallets(TransactionsData $transactionData): TransactionsData|null;
 
 }

@@ -23,7 +23,7 @@ class WalletsFactory extends Factory
         return [
             'user_id' => User::factory(),
             'balance' => $this->faker->randomFloat(2, 0, 10000),
-            'type' => $this->faker->randomElement([Wallets::WalletTypeFiat, Wallets::WalletTypeCrypto])
+            'type' => $this->faker->randomElement([Wallets::WALLET_FIAT, Wallets::WALLET_CRYPTO])
         ];
     }
 }

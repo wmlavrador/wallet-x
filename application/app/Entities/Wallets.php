@@ -12,8 +12,18 @@ class Wallets extends Model
 {
     use HasFactory;
 
-    public const WalletTypeFiat = 'fiat';
-    public const WalletTypeCrypto = 'crypto';
+    public const WALLET_FIAT = 1;
+    public const WALLET_CRYPTO = 2;
+
+    public const WALLET_TYPE_LABEL = [
+        self::WALLET_FIAT => 'Fiat',
+        self::WALLET_CRYPTO => 'Crypto'
+    ];
+
+    public static function getWalletTypeLabel(int $type): string
+    {
+        return self::WALLET_TYPE_LABEL[$type] ?? 'Status is not defined';
+    }
 
     protected $fillable = [
         'user_id',

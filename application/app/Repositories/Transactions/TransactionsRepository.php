@@ -27,17 +27,13 @@ class TransactionsRepository implements TransactionsRepositoryInterface
             ->get();
     }
 
-    public function createTransactionToWallets(
-        WalletData $walletSender,
-        WalletData $walletReceiver,
-        float $value
-    ): TransactionsData|null {
-
+    public function createTransactionToWallets(TransactionsData $transactionData): TransactionsData|null
+    {
         $newTransaction = Transactions::create([
             'code' => Uuid::uuid4()->toString(),
-            'wallets_id_sender' => $walletSender->userId,
-            'wallets_id_receiver' => $walletReceiver->userId,
-            'value' => $value
+            'wallets_id_sender' => $transactionData->walletIdSender,
+            'wallets_id_receiver' => $transactionData->walletIdReceiver,
+            'value' => $transactionData->value
         ]);
 
         return new TransactionsData(

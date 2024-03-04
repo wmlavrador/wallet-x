@@ -3,6 +3,7 @@
 namespace App\Gateways\TransferFundsAuthorizer\EFTAuthorizer;
 
 use App\Contracts\TransferFundsAuthorizerContract;
+use App\Entities\DataTransferObjects\WalletData;
 use Illuminate\Support\Facades\Http;
 
 class EFTAuthorizer implements TransferFundsAuthorizerContract
@@ -15,7 +16,7 @@ class EFTAuthorizer implements TransferFundsAuthorizerContract
         $this->endpoint = env('ETFAUTHORIZER_ENDPOINT');
     }
 
-    public function checkTransferFunds($sender, $receiver, $value): bool
+    public function checkTransferFunds(WalletData $sender, WalletData $receiver, $value): bool
     {
         $payload = $this->mountTransferPayload($sender, $receiver, $value);
         $response = $this->client::post(
@@ -28,10 +29,10 @@ class EFTAuthorizer implements TransferFundsAuthorizerContract
 
     private function mountTransferPayload($sender, $receiver, $value): array
     {
-        return (new CheckTransferDTO())
-            ->setPayer($sender->id)
-            ->setPayee($receiver->id)
-            ->setValue($value)
-            ->mountPayload();
+        return (new CheckTransferData(
+            payer: $sender->id,
+            payee: $receiver->id,
+            value: $value
+        ))->toArray();
     }
 }

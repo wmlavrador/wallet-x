@@ -11,25 +11,31 @@ use Illuminate\Database\Eloquent\Collection;
 interface WalletsRepositoryInterface
 {
     /**
-     * @param \App\Entities\DataTransferObjects\UserData $user
+     * @param int $idWallet
+     * @return WalletData|null
+     */
+    public function specificWalletById(int $idWallet): WalletData|null;
+
+    /**
+     * @param UserData $userData
      * @param string|null $byWalletType
      * @return Wallets|null
      */
     public function getUserWallets(UserData $userData, string $byWalletType = null): Collection|null;
 
     /**
-     * @param Wallets $wallet
+     * @param WalletData $wallet
      * @param float $value
      * @return bool|int
      */
-    public function increaseBalanceOfWallet(Wallets $wallet, float $value): bool|int;
+    public function increaseBalanceOfWallet(WalletData $wallet, float $value): bool|int;
 
     /**
-     * @param Wallets $wallet
+     * @param WalletData $wallet
      * @param float $value
      * @return bool|int
      */
-    public function decreaseBalanceOfWallet(Wallets $wallet, float $value): bool|int;
+    public function decreaseBalanceOfWallet(WalletData $wallet, float $value): bool|int;
 
     /**
      * @param User $user
