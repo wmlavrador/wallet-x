@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Wallet\TransferFundsController;
+use App\Http\Controllers\Wallet\WalletTransactionsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('transfer', [TransferFundsController::class, 'transferFunds']);
+Route::post('transfer', [WalletTransactionsController::class, 'transferFunds']);
