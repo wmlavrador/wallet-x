@@ -62,7 +62,7 @@ docker-compose up
 ### 5. Installing Laravel Dependencies
 Access the app wallet container
 ```
-docker-compose exec app_wallet_x
+docker-compose exec app_wallet_x bash
 ```
 Inside the container install the dependencies using Composer:
 ```
