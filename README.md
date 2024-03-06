@@ -23,7 +23,7 @@ The project is still under development and the next updates will focus on the fo
 
 Before you begin, make sure you meet the following requirements:
 
-- You have installed the latest version of `<git / docker / docker-compose>`
+- You have installed the latest version of `<git & docker & docker-compose>`
 
 ## 🚀 Installing wallet-x
 
@@ -31,7 +31,7 @@ To install wallet-x, follow these steps:
 
 Linux/macOS/Windows:
 
-### 1. Clone o Repositório
+### 1. Clone the Repository
 Clone this repository to your local environment:
 ```
 git clone git@github.com:wmlavrador/wallet-x.git
@@ -59,7 +59,7 @@ Run the docker-compose up command to start the containers:
 docker-compose up
 ```
 
-### Installing Laravel Dependencies
+### 5. Installing Laravel Dependencies
 Access the app wallet container
 ```
 docker-compose exec app_wallet_x
@@ -81,6 +81,7 @@ Run the migrations, if you prefer you can also feed the database with the seeder
 ```
 php artisan migrate --seed
 ```
+🚀 Congrats bro
 
 ## ☕ Usando Wallet-X
 After following the steps above, your application is ready to use
@@ -95,4 +96,4 @@ Do you want to be part of this project? Click [Here](CONTRIBUTING.md) and read h
 
 ## 📝 Licença
 
-Esse projeto está sob licença. Veja o arquivo [License](LICENSE.md) for more details.
+This project is under license. See the file [License](LICENSE.md) for more details.

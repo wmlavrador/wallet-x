@@ -55,7 +55,6 @@ class TransferBetweenWalletsUseCase
         );
     }
 
-
     /**
      * @param WalletData $sender
      * @param WalletData $receiver
