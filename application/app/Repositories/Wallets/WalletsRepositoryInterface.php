@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Wallets;
 
-use App\Entities\DataTransferObjects\UserData;
-use App\Entities\DataTransferObjects\WalletData;
+use App\Entities\DataTransferObjects\User\UserData;
+use App\Entities\DataTransferObjects\Wallet\WalletData;
 use App\Entities\User;
 use App\Entities\Wallets;
 use Illuminate\Database\Eloquent\Collection;

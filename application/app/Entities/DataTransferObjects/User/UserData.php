@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entities\DataTransferObjects;
+namespace App\Entities\DataTransferObjects\User;
 
 class UserData
 {

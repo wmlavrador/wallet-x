@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Wallet;
 
-use App\Entities\DataTransferObjects\TransactionsData;
+use App\Entities\DataTransferObjects\Transactions\TransactionsData;
 use App\Exceptions\Transfer\TransferRulesException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Wallet\TransferBetweenWalletsRequest;
@@ -21,7 +21,7 @@ class WalletTransactionsController extends Controller
      * @return JsonResponse
      * @throws TransferRulesException
      */
-    public function transferFunds(TransferBetweenWalletsRequest $request): JsonResponse
+    public function newTransaction(TransferBetweenWalletsRequest $request): JsonResponse
     {
         $transactionData = new TransactionsData(
             walletIdSender: $request->getSender(),

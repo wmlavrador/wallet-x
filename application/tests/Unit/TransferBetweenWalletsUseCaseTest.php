@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Unit\UseCases\Wallet;
+namespace Tests\Unit;
 
 use App\Contracts\TransferFundsAuthorizerContract;
-use App\Entities\DataTransferObjects\TransactionsData;
-use App\Entities\DataTransferObjects\WalletData;
+use App\Entities\DataTransferObjects\Transactions\TransactionsData;
+use App\Entities\DataTransferObjects\Wallet\WalletData;
 use App\Entities\Wallets;
 use App\Exceptions\Transfer\TransferRulesException;
 use App\Gateways\TransferFundsAuthorizer\EFTAuthorizer\EFTAuthorizer;
