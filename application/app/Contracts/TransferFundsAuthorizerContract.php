@@ -2,7 +2,7 @@
 
 namespace App\Contracts;
 
-use App\Entities\DataTransferObjects\WalletData;
+use App\Entities\DataTransferObjects\Wallet\WalletData;
 
 interface TransferFundsAuthorizerContract
 {

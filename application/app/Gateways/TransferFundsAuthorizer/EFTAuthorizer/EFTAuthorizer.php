@@ -3,7 +3,7 @@
 namespace App\Gateways\TransferFundsAuthorizer\EFTAuthorizer;
 
 use App\Contracts\TransferFundsAuthorizerContract;
-use App\Entities\DataTransferObjects\WalletData;
+use App\Entities\DataTransferObjects\Wallet\WalletData;
 use Illuminate\Support\Facades\Http;
 
 class EFTAuthorizer implements TransferFundsAuthorizerContract

@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Transactions;
 
-use App\Entities\DataTransferObjects\TransactionsData;
-use App\Entities\DataTransferObjects\WalletData;
+use App\Entities\DataTransferObjects\Transactions\TransactionsData;
+use App\Entities\DataTransferObjects\Wallet\WalletData;
 use Illuminate\Database\Eloquent\Collection;
 
 interface TransactionsRepositoryInterface

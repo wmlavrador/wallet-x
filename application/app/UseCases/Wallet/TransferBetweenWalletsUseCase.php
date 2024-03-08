@@ -3,8 +3,8 @@
 namespace App\UseCases\Wallet;
 
 use App\Contracts\TransferFundsAuthorizerContract;
-use App\Entities\DataTransferObjects\TransactionsData;
-use App\Entities\DataTransferObjects\WalletData;
+use App\Entities\DataTransferObjects\Transactions\TransactionsData;
+use App\Entities\DataTransferObjects\Wallet\WalletData;
 use App\Exceptions\Transfer\TransferRulesException;
 use App\Repositories\Transactions\TransactionsRepositoryInterface;
 use App\Repositories\Wallets\WalletsRepositoryInterface;
